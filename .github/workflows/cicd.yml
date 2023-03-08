@@ -33,10 +33,10 @@ jobs:
           registry: europe-west1-docker.pkg.dev
           username: _json_key
           password: ${{ secrets.SA_KEY }}
-      # - id: docker-push-tagged
-      #   name: Tag Docker image and push to Google Artifact Registry
-      #   uses: docker/build-push-action@v3
-      #   with:
-      #     push: true
-      #     tags: |
-      #       ${{ secrets.GCP_ARTIFACT_REPO }}/workshop:${{ github.sha }}
+      - id: docker-push-tagged
+         name: Tag Docker image and push to Google Artifact Registry
+         uses: docker/build-push-action@v3
+         with:
+           push: true
+           tags: |
+             europe-west1-docker.pkg.dev/gc_workshop:${{ github.sha }}
