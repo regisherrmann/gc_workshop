@@ -53,6 +53,9 @@ jobs:
           env_vars: |
             NODE_ENV=production
             PGPASSWORD="${{ secrets.PGPASSWORD }}"
+            PGUSER="${{ secrets.PGUSER }}"
+            PGHOST=db.sskbhrrfglhacqgohdcf.supabase.co
+            PGPORT=5432
           flags: "--port=8080"
           region: "europe-west1"
       
