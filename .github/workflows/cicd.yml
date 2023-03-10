@@ -45,3 +45,19 @@ jobs:
         with:
           credentials_json: "${{ secrets.SA_KEY }}"
           
+      - id: "deploy"
+        uses: "google-github-actions/deploy-cloudrun@v1"
+        with:
+          service: "gc-workshop"
+          image: europe-west1-docker.pkg.dev/level-night-379310/gcworkshop/gc_workshop:${{ github.sha }}
+          env_vars: |
+            NODE_ENV=production
+          flags: "--port=8080"
+          region: "europe-west1"
+      
+      - name: "deploy-output"
+        run: 'curl "${{ steps.deploy.outputs.url }}"'
+
+        
+
+
