@@ -40,3 +40,8 @@ jobs:
           push: true
           tags: |
             europe-west1-docker.pkg.dev/level-night-379310/gcworkshop/gc_workshop:${{ github.sha }}
+      - id: "auth"
+        uses: "google-github-actions/auth@v1"
+        with:
+          credentials_json: "${{ secrets.SA_KEY }}"
+          
