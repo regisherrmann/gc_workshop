@@ -52,6 +52,7 @@ jobs:
           image: europe-west1-docker.pkg.dev/level-night-379310/gcworkshop/gc_workshop:${{ github.sha }}
           env_vars: |
             NODE_ENV=production
+            PGPASSWORD="${{ secrets.PGPASSWORD }}"
           flags: "--port=8080"
           region: "europe-west1"
       
